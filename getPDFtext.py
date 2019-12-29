@@ -24,9 +24,14 @@ for p in range(1,2):
 ## wrt .encode() 50K causes and solutions to this problem
 filename = str(sys.argv[1]+".txt")
 
-with open(filename, "a") as textdump:
+with open(filename, "w") as textdump:
     for p in range (0,len(pdf.pages)):
         tp = pdf.pages[p]
-        thetext = tp.within_bbox((20,20,540,660)).extract_text().encode('utf-8')
-        print(thetext)
-        textdump.write(thetext)
+        print("Currently processing page " + str(p))
+        if tp.within_bbox((20,20,540,660)).extract_text():
+            thetext = tp.within_bbox((20,20,540,660)).extract_text().encode('utf-8')
+            textdump.write(thetext)
+        else:
+            print("No text found on page " + str(p))
+
+print("The text extraction is complete.")
