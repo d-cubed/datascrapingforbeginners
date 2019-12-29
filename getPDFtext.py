@@ -27,11 +27,12 @@ filename = str(sys.argv[1]+".txt")
 with open(filename, "w") as textdump:
     for p in range (0,len(pdf.pages)):
         tp = pdf.pages[p]
-        print("Currently processing page " + str(p))
+        sys.stdout.write('\r'+"Currently processing page " + str(p))
+        sys.stdout.flush()
         if tp.within_bbox((20,20,540,660)).extract_text():
             thetext = tp.within_bbox((20,20,540,660)).extract_text().encode('utf-8')
             textdump.write(thetext)
         else:
-            print("No text found on page " + str(p))
+            print("\n No text found on page " + str(p) )
 
 print("The text extraction is complete.")
