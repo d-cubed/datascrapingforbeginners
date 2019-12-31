@@ -37,7 +37,7 @@ for line in numbered:
     i+=1
 
 df = pd.DataFrame(rows_list,columns=['line','text','polarity','subjectivity'])
-df['textblob'] = df['text'].apply(TextBlob)
+#df['textblob'] = df['text'].apply(TextBlob)
 
 #the extra steps are added for transparency
 
