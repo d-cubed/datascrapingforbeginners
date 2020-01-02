@@ -1,9 +1,5 @@
 #! /usr/bin/python
 
-#for more information on creating and using dataframes in Pandas
-# https://www.tutorialspoint.com/python_pandas/python_pandas_dataframe.htm
-# https://medium.com/dunder-data/selecting-subsets-of-data-in-pandas-6fcd0170be9c
-
 from textblob import TextBlob
 import pandas as pd
 import io
@@ -29,8 +25,6 @@ txt = unicode(txt,'utf-8')
 f = io.StringIO(txt)
 numbered = f.readlines()
 
-#cf https://stackoverflow.com/questions/10715965/add-one-row-to-pandas-dataframe
-#a list of dictionaries
 rows_list = []
 i=1
 for line in numbered:
@@ -87,7 +81,6 @@ pplot.set_facecolor("grey")
 pplot.legend(["Polarity Sum"]);
 #v to actually show the plot
 #plt.show()
-
 pngname = str(sys.argv[1]).split('.')[0] + "_polsum.png"
 #v to actually save the plot
 plt.savefig(pngname)
